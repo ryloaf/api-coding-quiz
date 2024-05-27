@@ -1,9 +1,10 @@
+// Quiz questions data
 var quizQuestions = [
     {
         question: "1: Which is the correct HTML element for the largest heading?",
         options: [
             "A) <h6>",
-            "B) <heading",
+            "B) <heading>",
             "C) <head>",
             "D) <h1>"
         ],
@@ -14,7 +15,7 @@ var quizQuestions = [
         options: [
             "A) ()",
             "B) []",
-            "C) {}",
+            "C) {}"
         ],
         correctAnswer: 1
     },
@@ -37,109 +38,94 @@ var quizQuestions = [
             "D) const PI = 3.14"
         ],
         correctAnswer: 3
-    },
+    }
 ];
 
 let currentQuestion = 0;
 let score = 0;
-let saveScoreClicked = false;
 let timer;
 let timeRemaining = 60;
 
+// Display the current question
 function displayQuestion() {
-    const quizContainer = document.getElementById("quiz-container");
     const questionData = quizQuestions[currentQuestion];
+    document.getElementById("questionHeading").textContent = questionData.question;
 
-    quizContainer.innerHTML = "";
-
-    const questionElement = document.createElement("h2");
-    questionElement.textContent = questionData.question;
-    quizContainer.appendChild(questionElement);
-    questionData.options.forEach((option, index) => {
-        const optionElement = document.createElement("button");
-        optionElement.textContent = option;
-        optionElement.addEventListener("click", () => checkAnswer(option));
-        quizContainer.appendChild(optionElement); 
+    const choices = document.querySelectorAll('#quizContainer button');
+    choices.forEach((button, index) => {
+        button.textContent = questionData.options[index];
+        button.onclick = () => checkAnswer(index);
     });
-
-    startTimer();
 }
 
+// Start the timer
 function startTimer() {
+    timeRemaining = 60; // Reset timer for each new quiz
+    document.getElementById('timer').textContent = `${timeRemaining}s`;
     timer = setInterval(function () {
-        document.getElementById('timer').textContent = `Time Remaining: ${timeRemaining}s`;
         timeRemaining--;
-
-        if(timeRemaining < 0) {
+        document.getElementById('timer').textContent = `${timeRemaining}s`;
+        if (timeRemaining <= 0) {
             clearInterval(timer);
+            displayResult();
         }
     }, 1000);
 }
 
-function checkAnswer(selectedOption) {
-    const correctAnswer = quizQuestions[currentQuestion].correctAnswer;
-    if (selectedOption === correctAnswer) {
-        const resultElement = document.createElement("div");
-        resultElement.innerHTML = `
-        <p>Correct</p>`;
+// Check the selected answer
+function checkAnswer(selectedOptionIndex) {
+    const correctAnswerIndex = quizQuestions[currentQuestion].correctAnswer;
+    if (selectedOptionIndex === correctAnswerIndex) {
         score++;
-    } else {
-        const resultElement = document.createElement("div");
-        resultElement.innerHTML = `
-        <p>Incorrect!</p>`;
-        score--;
     }
-
     currentQuestion++;
-    
     if (currentQuestion < quizQuestions.length) {
         displayQuestion();
     } else {
+        clearInterval(timer);
         displayResult();
     }
 }
 
+// Display the result
 function displayResult() {
-    const quizContainer = document.getElementById("quiz-container");
-    const resultElement = document.createElement("div");
-
-    resultElement.innerHTML = `
-    <h2>Quiz Complete!</h2>
-    <p>Your Score: ${score}/${quizQuestions.length}</p>
-    <label for="playerInitials>Enter your initials: </label>
-    <input type="text" id="playerInitials" placeholder="Your Initals">
-    <button onclick="saveHighScore(document.getElementById('playerInitials').value)">Save Score</button>
-    <button onlcick="proceedToHighScores()">Show High Scores</button>
-    `;
-    quizContainer.innerHTML = '';
-    quizContainer.appendChild(resultElement);
+    document.getElementById("quizContainer").style.display = "none";
+    document.getElementById("nice_try").style.display = "block";
+    document.getElementById("final_score").textContent = score;
 }
 
+// Save high score
 function saveHighScore() {
     if (!saveScoreClicked) {
         saveScoreClicked = true;
-        const playerInitials = document.getElementById('playerInitials').value;
+        const playerInitials = document.getElementById('initials').value;
         if (playerInitials.trim() !== "") {
             console.log("Score saved!");
         }
     }
 }
 
-function submitQuiz() {
-    const selectedOption = document.querySelector('button.selected');
+// Start quiz
+document.getElementById('startBtn').addEventListener('click', function () {
+    document.getElementById('homeContainer').style.display = 'none';
+    document.getElementById('quizContainer').style.display = 'block';
+    document.getElementById('countdownTimer').style.display = 'block';
+    displayQuestion();
+    startTimer();
+});
 
-    if (selectedOption) {
-        const userAnswer = selectedOption.textContent;
-        checkAnswer(userAnswer);
-    }
-
-    if(currentQuestion < quizQuestions.length - 1) {
-        currentQuestion++;
-        displayQuestion();
-    } else {
-        displayResult();
-    }
+// Go back to home
+function go_home() {
+    document.getElementById('high_scores_page').style.display = 'none';
+    document.getElementById('homeContainer').style.display = 'block';
 }
 
-displayQuestion();
-saveHighScore();
+// Show high scores (Dummy function, you need to implement high scores logic)
+function show_high_scores() {
+    document.getElementById('homeContainer').style.display = 'none';
+    document.getElementById('high_scores_page').style.display = 'block';
+}
+
+// Submit score
+document.getElementById('submit_initials').addEventListener('click', saveHighScore);
+document.getElementById('go_back').addEventListener('click', go_home);
