@@ -11,16 +11,17 @@ var quizQuestions = [
         correctAnswer: 3
     },
     {
-        question: "To declare an array in Java, you define the variable type with:",
+        question: "2: To declare an array in Java, you define the variable type with:",
         options: [
-            "A) ()",
-            "B) []",
-            "C) {}"
+            "A) `()`",
+            "B) `[]`",
+            "C) `{}`",
+            "D) `<>`"
         ],
         correctAnswer: 1
     },
     {
-        question: "In Java, what is the difference between == and equals() when comparing objects?",
+        question: "3: In Java, what is the difference between == and equals() when comparing objects?",
         options: [
             "A) `==` compares object references, while equals() compares object values.",
             "B) `==` compares object values, while `equals()` compares object references",
@@ -30,7 +31,7 @@ var quizQuestions = [
         correctAnswer: 0
     },
     {
-        question: "How do you declare a constant in JavaScript?",
+        question: "4: How do you declare a constant in JavaScript?",
         options: [
             "A) var PI = 3.14;",
             "B) let PI = 3.14;",
@@ -38,7 +39,65 @@ var quizQuestions = [
             "D) const PI = 3.14"
         ],
         correctAnswer: 3
-    }
+    },
+    {
+        question: "5: What is the output of the following JavaScript code?`console.log(typeof null);`",
+        options: [
+            "A) object",
+            "B) undefined",
+            "C) number",
+            "D) null"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "6: Which of the following is a back-end language?",
+        options: [
+            "A) JavaScript",
+            "B) CSS",
+            "C) HTML",
+            "D) Python"
+        ],
+        correctAnswer: 3
+    },
+    {
+        question: "7: Which of the following is a JavaScript framework?",
+        options: [
+            "A) Flask",
+            "B) Django",
+            "C) React",
+            "D) Laravel"
+        ],
+        correctAnswer: 2
+    },
+    {
+        question: "8: What does HTML stand for?",
+        options: [
+            "A) Home Tool Markup Language",
+            "B) Hyperlinks Text Mark Language",
+            "C) Hyperlinks and Text Markup Language",
+            "D) Hyper Text Markup Language"
+        ],
+        correctAnswer: 3
+    },
+    {
+        question: "9: Which of the following is used to create a variable in JavaScript?",
+        options: [
+            "A) var",
+            "B) float",
+            "C) string",
+            "D) int"
+        ],
+        correctAnswer: 0
+    },
+    {
+        question: "10: In JavaScript, what will `console.log(0 == false)` output?",
+        options: [
+            "A) true",
+            "B) false"
+        ],
+        correctAnswer: 0
+    },
 ];
 
 let currentQuestion = 0;
