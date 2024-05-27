@@ -1,7 +1,7 @@
 * {
     font-family: 'Comic Sans MS', 'Comic Sans', sans-serif;
     max-width: 100%;
-    background-color: white;
+    background-color: rgb(154, 202, 205);
 }
 
 header {
@@ -14,11 +14,6 @@ body {
     margin: 0;
     font-family: 'Comic Sans MS', 'Comic Sans', sans-serif;
     text-align: center;
-}
-
-#scoreDisplay {
-    float: left;
-    color: #4287f5;
 }
 
 #scoreDisplay:hover {
