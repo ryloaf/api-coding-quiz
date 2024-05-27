@@ -24,5 +24,5 @@
 
   ## Credits & Links
 
-  [Render Application](https://ryloaf.github.io/api-coding-quiz/)
+  [Application](https://ryloaf.github.io/api-coding-quiz/)
   © 2024 [Rylee Jolley](https://github.com/ryloaf)
