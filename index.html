@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css" />
+    <title>Coding Quiz</title>
+</head>
+
+<body>
+    <header>
+        <section id = "score_keeper" style="display: none">
+        <input type="button value="Show High Scores" onClick="show_high_scores()"></section></br>
+        Score: <var id="score"> </var>
+    </section>
+
+    <section id="countdownTimer" style="display: none"> Time Remaining: <span id="timer"></span>
+    </section>
+    </header>
+
+    <container>
+        <div id="homeContainer" class="none">
+            <h1>Welcome to the Ultimate Coding Quiz!!</h1>
+            <p>Try your best to answer each code-related question within the time limit.</p>
+            <br>
+            <button id="startBtn">Start Quiz</button>
+        </div>
+    </container>
+
+    <div id="quizContainer" style="display: none">
+    <h2 id="questionHeading"></h2>
+        <ul>
+            <div id="choices">
+                <button id="answerChoiceA"></button>
+            </div>
+            <div id="choices">
+                <button id="answerChoiceB"></button>
+            </div>
+            <div id="choices">
+                <button id="answerChoiceC"></button>
+            </div>
+            <div id="choices">
+                <button id="answerChoiceD"></button>
+            </div>
+        </ul>
+</div>    
+</body>
+
+<!-- Results and High Scores -->
+<section id="AnswerResponse">
+</section>
+
+<div id="nice_try" style="display: none">
+<h2>Try Again!</h2>
+Your Score: <var id="final_score"> </var>
+</br>
+Initials: <input type="text" value="initials" id="initials">
+</br>
+<input type="button" value="submit" id="submit_initials" onclick="submit_score()">
+</div>
+
+<div id="high_scores_page" style="display: none">
+    <h2> High Scores </h2>
+    <div id="high_scores"></div>
+        <input type="button" value="Go Back" id="go_back" onclick="go_home()">
+</div>
+
+<script src="script.js"></script>
+</html>

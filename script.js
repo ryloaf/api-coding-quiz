@@ -1,42 +1,42 @@
-const quizQuestions = [
+var quizQuestions = [
     {
         question: "1: Which is the correct HTML element for the largest heading?",
         options: [
-            "<h6>",
-            "<heading",
-            "<head>",
-            "<h1>"
+            "A) <h6>",
+            "B) <heading",
+            "C) <head>",
+            "D) <h1>"
         ],
-        correctAnswer: "<h1>"
+        correctAnswer: 3
     },
     {
         question: "To declare an array in Java, you define the variable type with:",
         options: [
-            "()",
-            "[]",
-            "{}",
+            "A) ()",
+            "B) []",
+            "C) {}",
         ],
-        correctAnswer: "[]"
+        correctAnswer: 1
     },
     {
         question: "In Java, what is the difference between == and equals() when comparing objects?",
         options: [
-            "`==` compares object references, while equals() compares object values.",
-            "`==` compares object values, while `equals()` compares object references",
-            "`==` compares object types, while `equals()` compares object references.",
-            "There is no difference."
+            "A) `==` compares object references, while equals() compares object values.",
+            "B) `==` compares object values, while `equals()` compares object references",
+            "C) `==` compares object types, while `equals()` compares object references.",
+            "D) There is no difference."
         ],
-        correctAnswer: "`==` compares object references, while `equals()` compares object values."
+        correctAnswer: 0
     },
     {
         question: "How do you declare a constant in JavaScript?",
         options: [
-            "var PI = 3.14;",
-            "let PI = 3.14;",
-            "constant PI = 3.14;",
-            "const PI = 3.14"
+            "A) var PI = 3.14;",
+            "B) let PI = 3.14;",
+            "C) constant PI = 3.14;",
+            "D) const PI = 3.14"
         ],
-        correctAnswer: "const PI = 3.14;"
+        correctAnswer: 3
     },
 ];
 
